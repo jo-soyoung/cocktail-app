@@ -5,7 +5,7 @@ import {
   NavLink,
 } from 'react-router-dom';
 import styles from './app.module.css';
-import Home from './components/home/home';
+import Login from './components/login/login';
 import Picks from './components/picks/picks';
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
         </nav>
 
         <Switch>
-          <Route path="/" exact>
-            <Home />
+          <Route path={['/', '/login']} exact>
+            <Login />
           </Route>
           <Route path="/picks">
             <Picks />
