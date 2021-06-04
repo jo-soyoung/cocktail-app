@@ -17,7 +17,7 @@ const Login = props => {
               <button>Google</button>
             </li>
             <li>
-              <button>GitHub</button>
+              <button>Github</button>
             </li>
           </ul>
         </section>
