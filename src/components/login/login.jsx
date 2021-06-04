@@ -4,23 +4,27 @@ import Footer from '../footer/footer';
 
 const Login = props => {
   return (
-    <div>
-      <div>One martini is alright, two is too many, three is not enough</div>
+    <>
+      <div className={styles.container}>
+        <div className={styles.quotes}>
+          One martini is alright, two is too many, three is not enough
+        </div>
 
-      <section>
-        <h2>Sign in</h2>
-        <ul>
-          <li>
-            <button>Google</button>
-          </li>
-          <li>
-            <button>GitHub</button>
-          </li>
-        </ul>
-      </section>
+        <section className={styles.login}>
+          <h2>Sign in</h2>
+          <ul className={styles.loginBtns}>
+            <li>
+              <button>Google</button>
+            </li>
+            <li>
+              <button>GitHub</button>
+            </li>
+          </ul>
+        </section>
+      </div>
 
       <Footer />
-    </div>
+    </>
   );
 };
 
