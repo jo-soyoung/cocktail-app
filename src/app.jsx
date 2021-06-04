@@ -10,6 +10,10 @@ import Home from './components/home/home';
 import Picks from './components/picks/picks';
 
 function App({ authService }) {
+  const onSearch = query => {
+    // search on cocktail api
+  };
+
   return (
     <div className={styles.app}>
       <Router>
@@ -31,7 +35,7 @@ function App({ authService }) {
             <Login authService={authService} />
           </Route>
           <Route path="/home">
-            <Home />
+            <Home onSearch={onSearch} />
           </Route>
           <Route path="/picks">
             <Picks />
