@@ -12,8 +12,8 @@ function App() {
   return (
     <div className={styles.app}>
       <Router>
-        <nav>
-          <ul>
+        <nav className={styles.nav}>
+          <ul className={styles.menus}>
             <li>
               <NavLink exact to="/" aria-label="Go home">
                 Cocktail App
