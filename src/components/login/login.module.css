@@ -1,9 +1,16 @@
+@value mediaQuery from '../../common/size.css';
+
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 100vh;
-  padding: 50px;
   border: 1px solid #333;
+}
+
+@media screen and (min-width: mediaQuery) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+  }
 }
