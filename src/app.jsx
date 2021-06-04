@@ -16,7 +16,7 @@ function App() {
           <ul className={styles.menus}>
             <li>
               <NavLink exact to="/" aria-label="Go home">
-                Cocktail App
+                Cocktail Picks
               </NavLink>
             </li>
             <li>
