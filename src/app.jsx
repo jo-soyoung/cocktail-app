@@ -9,7 +9,7 @@ import Login from './components/login/login';
 import Home from './components/home/home';
 import Picks from './components/picks/picks';
 
-function App() {
+function App({ authService }) {
   return (
     <div className={styles.app}>
       <Router>
@@ -28,7 +28,7 @@ function App() {
 
         <Switch>
           <Route path={['/', '/login']} exact>
-            <Login />
+            <Login authService={authService} />
           </Route>
           <Route path="/home">
             <Home />
