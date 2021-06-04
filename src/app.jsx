@@ -6,17 +6,18 @@ import {
 } from 'react-router-dom';
 import styles from './app.module.css';
 import Login from './components/login/login';
+import Home from './components/home/home';
 import Picks from './components/picks/picks';
 
-function App() {
+function App({ authService }) {
   return (
     <div className={styles.app}>
       <Router>
-        <nav>
-          <ul>
+        <nav className={styles.nav}>
+          <ul className={styles.menus}>
             <li>
-              <NavLink exact to="/" aria-label="Go home">
-                Cocktail App
+              <NavLink to="/home" aria-label="Go home">
+                Cocktail Picks
               </NavLink>
             </li>
             <li>
@@ -27,7 +28,10 @@ function App() {
 
         <Switch>
           <Route path={['/', '/login']} exact>
-            <Login />
+            <Login authService={authService} />
+          </Route>
+          <Route path="/home">
+            <Home />
           </Route>
           <Route path="/picks">
             <Picks />

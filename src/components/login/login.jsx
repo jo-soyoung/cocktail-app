@@ -1,26 +1,56 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import styles from './login.module.css';
 import Footer from '../footer/footer';
 
-const Login = props => {
-  return (
-    <div>
-      <div>One martini is alright, two is too many, three is not enough</div>
+const Login = ({ authService }) => {
+  const history = useHistory();
 
-      <section>
-        <h2>Sign in</h2>
-        <ul>
-          <li>
-            <button>Google</button>
-          </li>
-          <li>
-            <button>GitHub</button>
-          </li>
-        </ul>
-      </section>
+  useEffect(() => {
+    authService.onAuthChange(user => {
+      user && goToApp(user.uid);
+    });
+  });
+
+  const goToApp = userId => {
+    history.push({
+      pathname: '/home',
+      state: { id: userId },
+    });
+  };
+
+  const onLogin = e => {
+    e.preventDefault();
+    authService //
+      .login(e.currentTarget.textContent)
+      .then(data => goToApp(data.user.uid));
+  };
+
+  return (
+    <>
+      <div className={styles.container}>
+        <div className={styles.quotes}>
+          One martini is alright, two is too many, three is not enough
+        </div>
+
+        <section className={styles.login}>
+          <h2>Sign in</h2>
+          <ul className={styles.loginBtns}>
+            <li>
+              <button onClick={onLogin}>Google</button>
+            </li>
+            <li>
+              <button onClick={onLogin}>Facebook</button>
+            </li>
+            <li>
+              <button onClick={onLogin}>Github</button>
+            </li>
+          </ul>
+        </section>
+      </div>
 
       <Footer />
-    </div>
+    </>
   );
 };
 
