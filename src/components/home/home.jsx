@@ -1,9 +1,19 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './home.module.css';
+import SearchList from '../search_list/searchList';
 import Footer from '../footer/footer';
 
-const Home = ({ onSearch }) => {
+const Home = () => {
+  const [cocktails, setCocktails] = useState(null);
   const inputRef = useRef();
+
+  //get and set cocktail lists
+  const showSearchResults = () => {};
+
+  const onSearch = query => {
+    //search on cocktails api
+    console.log(query);
+  };
 
   const onPassKeyword = e => {
     e.preventDefault();
@@ -26,6 +36,8 @@ const Home = ({ onSearch }) => {
           </form>
         </section>
       </div>
+
+      {cocktails && <SearchList />}
 
       <Footer />
     </>
