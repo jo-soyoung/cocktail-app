@@ -6,7 +6,7 @@ import Footer from '../footer/footer';
 
 const Home = ({ authService }) => {
   const history = useHistory();
-  const historyState = history.state;
+  const historyState = history.location.state;
   const [userId, setUserId] = useState(historyState && historyState.id);
   const [cocktails, setCocktails] = useState(null);
   const inputRef = useRef();
