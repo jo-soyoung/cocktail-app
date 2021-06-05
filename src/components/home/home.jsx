@@ -23,7 +23,7 @@ const Home = ({ authService }) => {
         history.push('/');
       }
     });
-  });
+  }, [authService, history]);
 
   //get and set cocktail lists
   const showSearchResults = () => {};
