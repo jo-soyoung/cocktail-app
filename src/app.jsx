@@ -31,7 +31,7 @@ function App({ authService }) {
             <Login authService={authService} />
           </Route>
           <Route path="/home">
-            <Home />
+            <Home authService={authService} />
           </Route>
           <Route path="/picks">
             <Picks />
