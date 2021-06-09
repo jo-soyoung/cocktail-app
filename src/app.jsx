@@ -1,3 +1,4 @@
+import React, { useState, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +10,22 @@ import Login from './components/login/login';
 import Home from './components/home/home';
 import Picks from './components/picks/picks';
 
-function App({ authService }) {
+function App({ authService, cocktail }) {
+  const [cocktails, setCocktails] = useState([]);
+
+  const search = useCallback(
+    query => {
+      cocktail //
+        .searchByName(query)
+        .then(cocktails => {
+          console.log(query);
+          console.log(cocktails);
+          setCocktails(cocktails);
+        });
+    },
+    [cocktail]
+  );
+
   return (
     <div className={styles.app}>
       <Router>
@@ -31,7 +47,11 @@ function App({ authService }) {
             <Login authService={authService} />
           </Route>
           <Route path="/home">
-            <Home authService={authService} />
+            <Home
+              authService={authService}
+              onSearch={search}
+              cocktails={cocktails}
+            />
           </Route>
           <Route path="/picks">
             <Picks />

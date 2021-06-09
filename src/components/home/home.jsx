@@ -4,11 +4,10 @@ import styles from './home.module.css';
 import SearchList from '../search_list/searchList';
 import Footer from '../footer/footer';
 
-const Home = ({ authService }) => {
+const Home = ({ authService, onSearch, cocktails }) => {
   const history = useHistory();
   const historyState = history.location.state;
   const [userId, setUserId] = useState(historyState && historyState.id);
-  const [cocktails, setCocktails] = useState(null);
   const inputRef = useRef();
 
   const onLogout = useCallback(() => {
@@ -26,14 +25,9 @@ const Home = ({ authService }) => {
   }, [authService, history]);
 
   //get and set cocktail lists
-  const showSearchResults = () => {};
+  const setCocktailLists = () => {};
 
-  const onSearch = query => {
-    //search on cocktails api
-    console.log(query);
-  };
-
-  const onPassKeyword = e => {
+  const onSubmit = e => {
     e.preventDefault();
     const value = inputRef.current.value;
     onSearch(value);
@@ -50,15 +44,14 @@ const Home = ({ authService }) => {
 
         <section className={styles.serach}>
           <h2>Search</h2>
-          <form onSubmit={onPassKeyword}>
+          <form onSubmit={onSubmit}>
             <input type="text" placeholder="Search" ref={inputRef} />
             <button type="submit">Search</button>
           </form>
         </section>
       </div>
 
-      {cocktails && <SearchList />}
-
+      {cocktails.length !== 0 && <SearchList />}
       <Footer />
     </>
   );
