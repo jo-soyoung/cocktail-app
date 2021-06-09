@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './home.module.css';
-import SearchList from '../search_list/searchList';
+import SearchList from '../search_list/search_list';
 import Footer from '../footer/footer';
 
 const Home = ({ authService, onSearch, cocktails }) => {
@@ -23,9 +23,6 @@ const Home = ({ authService, onSearch, cocktails }) => {
       }
     });
   }, [authService, history]);
-
-  //get and set cocktail lists
-  const setCocktailLists = () => {};
 
   const onSubmit = e => {
     e.preventDefault();
@@ -51,7 +48,7 @@ const Home = ({ authService, onSearch, cocktails }) => {
         </section>
       </div>
 
-      {cocktails.length !== 0 && <SearchList />}
+      <SearchList cocktails={cocktails} />
       <Footer />
     </>
   );
