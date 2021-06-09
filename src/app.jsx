@@ -18,8 +18,6 @@ function App({ authService, cocktail }) {
       cocktail //
         .searchByName(query)
         .then(cocktails => {
-          console.log(query);
-          console.log(cocktails);
           setCocktails(cocktails);
         });
     },
