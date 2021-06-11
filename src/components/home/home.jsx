@@ -16,7 +16,7 @@ const Home = ({ authService, onSearch, cocktails, setCocktails }) => {
   const onLogout = useCallback(() => {
     authService.logout();
     setCocktails([]);
-  }, [authService]);
+  }, [authService, setCocktails]);
 
   useEffect(() => {
     authService.onAuthChange(user => {
