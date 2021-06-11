@@ -13,7 +13,7 @@
 
 .logoutBtn {
   position: absolute;
-  top: 0;
+  top: 0.2rem;
   left: 1.8rem;
   width: 3rem;
   height: 3rem;
@@ -62,7 +62,6 @@
   flex-grow: 1;
   color: #fff;
   background-color: cocktailDark;
-  padding: 0.4rem 1rem;
   border: 1px solid cocktailDark;
   border-radius: 0 2px 2px 0;
   transition: opacity 0.25s;
@@ -105,6 +104,11 @@
     font-size: 7rem;
     font-weight: 700;
     line-height: 6rem;
+    z-index: 30;
+  }
+
+  .search.list::before {
+    position: absolute;
   }
 
   .search {

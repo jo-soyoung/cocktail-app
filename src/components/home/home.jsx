@@ -10,6 +10,11 @@ const Home = ({ authService, onSearch, cocktails }) => {
   const [userId, setUserId] = useState(historyState && historyState.id);
   const inputRef = useRef();
 
+  const listLength = cocktails.length;
+  const displayType = listLength !== 0 ? styles.list : undefined;
+
+  console.log(cocktails);
+
   const onLogout = useCallback(() => {
     authService.logout();
   }, [authService]);
@@ -37,7 +42,7 @@ const Home = ({ authService, onSearch, cocktails }) => {
           Sign out
         </button>
 
-        <section className={styles.search}>
+        <section className={`${styles.search} ${displayType}`}>
           <h2 className={styles.searchTitle}>Search</h2>
           <form onSubmit={onSubmit} className={styles.searchForm}>
             <input type="text" placeholder="Search" ref={inputRef} />
@@ -52,7 +57,7 @@ const Home = ({ authService, onSearch, cocktails }) => {
         </section>
       </div>
 
-      <SearchList cocktails={cocktails} />
+      {displayType !== undefined && <SearchList cocktails={cocktails} />}
       <Footer />
     </>
   );

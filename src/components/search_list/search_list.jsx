@@ -4,7 +4,7 @@ import SearchItem from '../search_item/search_item';
 
 const SearchList = ({ cocktails }) => {
   return (
-    <ul>
+    <ul className={styles.cocktailList}>
       {cocktails.map(cocktail => {
         return <SearchItem cocktail={cocktail} key={cocktail.idDrink} />;
       })}

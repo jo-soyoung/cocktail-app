@@ -1,0 +1,34 @@
+@value mediaQueryIPad, mediaQueryDesktop from '../../common/size.css';
+
+.cocktailItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+  cursor: pointer;
+}
+
+.cocktailImg {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.cocktailName {
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: mediaQueryIPad) {
+  .cocktailItem {
+    width: 50%;
+    padding: 0 0.9rem;
+  }
+}
+
+@media screen and (min-width: mediaQueryDesktop) {
+  .cocktailItem {
+    width: 25%;
+  }
+}
