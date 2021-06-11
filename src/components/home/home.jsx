@@ -4,7 +4,7 @@ import styles from './home.module.css';
 import SearchList from '../search_list/search_list';
 import Footer from '../footer/footer';
 
-const Home = ({ authService, onSearch, cocktails }) => {
+const Home = ({ authService, onSearch, cocktails, setCocktails }) => {
   const history = useHistory();
   const historyState = history.location.state;
   const [userId, setUserId] = useState(historyState && historyState.id);
@@ -13,10 +13,9 @@ const Home = ({ authService, onSearch, cocktails }) => {
   const listLength = cocktails.length;
   const displayType = listLength !== 0 ? styles.list : undefined;
 
-  console.log(cocktails);
-
   const onLogout = useCallback(() => {
     authService.logout();
+    setCocktails([]);
   }, [authService]);
 
   useEffect(() => {

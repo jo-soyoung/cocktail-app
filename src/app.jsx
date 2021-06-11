@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -51,6 +51,7 @@ function App({ authService, cocktail }) {
               authService={authService}
               onSearch={search}
               cocktails={cocktails}
+              setCocktails={setCocktails}
             />
           </Route>
           <Route path="/picks">
