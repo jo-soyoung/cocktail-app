@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +8,7 @@ import {
 import styles from './app.module.css';
 import Login from './components/login/login';
 import Home from './components/home/home';
+import Details from './components/details/details';
 import Picks from './components/picks/picks';
 
 function App({ authService, cocktail }) {
@@ -53,6 +54,9 @@ function App({ authService, cocktail }) {
               cocktails={cocktails}
               setCocktails={setCocktails}
             />
+          </Route>
+          <Route path="/details">
+            <Details />
           </Route>
           <Route path="/picks">
             <Picks />
