@@ -33,6 +33,11 @@ button {
   cursor: pointer;
 }
 
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 /* Navigation */
 .nav {
   display: flex;
