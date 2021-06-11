@@ -29,12 +29,8 @@ const Login = ({ authService }) => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.quotes}>
-          One martini is alright, two is too many, three is not enough
-        </div>
-
         <section className={styles.login}>
-          <h2>Sign in</h2>
+          <h2 className={styles.loginTitle}>Sign in</h2>
           <ul className={styles.loginBtns}>
             <li>
               <button onClick={onLogin}>Google</button>

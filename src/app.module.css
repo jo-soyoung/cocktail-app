@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@700&family=Ubuntu:wght@400;500&display=swap');
 @value cocktailDark from 'common/colors.css';
+@value mediaQueryIPad, mediaQueryDesktop from 'common/size.css';
 
 /* Reset CSS */
 * {
@@ -24,6 +25,9 @@ a {
 }
 
 button {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
   border: none;
   box-shadow: none;
   cursor: pointer;
@@ -38,6 +42,8 @@ button {
   left: 0;
   padding: 0 1rem;
   height: 60px;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 700;
 }
 
 .menus {
@@ -46,7 +52,45 @@ button {
   width: 100%;
 }
 
+.menus li {
+  position: relative;
+}
+
 .menus a {
   display: block;
   padding: 0.8rem;
+}
+
+.menus a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 1.2px;
+  background-color: cocktailDark;
+  transition: width 0.25s;
+}
+
+.menus a:hover::after,
+.menus .active::after {
+  width: 90%;
+}
+
+@media screen and (min-width: mediaQueryIPad) {
+  .nav {
+    padding: 0 3rem;
+  }
+
+  .menus {
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (min-width: mediaQueryDesktop) {
+  .nav {
+    padding: 0 4rem;
+  }
 }
