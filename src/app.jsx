@@ -35,7 +35,9 @@ function App({ authService, cocktail }) {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/picks">Your Picks</NavLink>
+              <NavLink to="/picks" activeClassName={styles.active}>
+                Your Picks
+              </NavLink>
             </li>
           </ul>
         </nav>

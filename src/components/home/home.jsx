@@ -10,6 +10,11 @@ const Home = ({ authService, onSearch, cocktails }) => {
   const [userId, setUserId] = useState(historyState && historyState.id);
   const inputRef = useRef();
 
+  const listLength = cocktails.length;
+  const displayType = listLength !== 0 ? styles.list : undefined;
+
+  console.log(cocktails);
+
   const onLogout = useCallback(() => {
     authService.logout();
   }, [authService]);
@@ -33,22 +38,26 @@ const Home = ({ authService, onSearch, cocktails }) => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.quotes}>
-          One tequila, two tequila, three tequila, floor
-        </div>
+        <button onClick={onLogout} className={styles.logoutBtn}>
+          Sign out
+        </button>
 
-        <button onClick={onLogout}>Sign out</button>
-
-        <section className={styles.serach}>
-          <h2>Search</h2>
-          <form onSubmit={onSubmit}>
+        <section className={`${styles.search} ${displayType}`}>
+          <h2 className={styles.searchTitle}>Search</h2>
+          <form onSubmit={onSubmit} className={styles.searchForm}>
             <input type="text" placeholder="Search" ref={inputRef} />
-            <button type="submit">Search</button>
+            <button type="submit">
+              <img
+                src="./images/search.png"
+                alt="Search"
+                className={styles.searchBtnImg}
+              />
+            </button>
           </form>
         </section>
       </div>
 
-      <SearchList cocktails={cocktails} />
+      {displayType !== undefined && <SearchList cocktails={cocktails} />}
       <Footer />
     </>
   );

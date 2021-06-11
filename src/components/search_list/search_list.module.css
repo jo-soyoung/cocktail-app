@@ -1,0 +1,20 @@
+@value mediaQueryIPad, mediaQueryDesktop from '../../common/size.css';
+
+.cocktailList {
+  width: 100%;
+  padding: 0 1.8rem;
+  text-align: center;
+}
+
+@media screen and (min-width: mediaQueryIPad) {
+  .cocktailList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: mediaQueryDesktop) {
+  .cocktailList {
+    margin-top: 30px;
+  }
+}
