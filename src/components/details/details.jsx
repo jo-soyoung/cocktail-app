@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './details.module.css';
 import Ingredient from '../ingredient/ingredient';
@@ -7,6 +7,10 @@ const Details = () => {
   const history = useHistory();
   const historyState = history?.location?.state;
   const ingredients = historyState.ingredients;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <main>
