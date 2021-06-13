@@ -7,6 +7,7 @@ const Details = () => {
   const history = useHistory();
   const historyState = history?.location?.state;
   const ingredients = historyState.ingredients;
+  const taste = historyState.taste.replace(/,/g, ' ');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -15,7 +16,7 @@ const Details = () => {
   return (
     <main>
       <h1>{historyState.name}</h1>
-      <p>{historyState.taste}</p>
+      <p>{taste}</p>
       <img src={historyState.image} alt={historyState.name} />
 
       <h2>Ingredients</h2>
