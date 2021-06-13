@@ -1,7 +1,29 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import styles from './details.module.css';
+import Ingredient from '../ingredient/ingredient';
 
-const Details = props => {
-  return <h1>Welcome to Your Details Page</h1>;
+const Details = () => {
+  const history = useHistory();
+  const historyState = history?.location?.state;
+  const ingredients = historyState.ingredients;
+
+  return (
+    <main>
+      <h1>{historyState.name}</h1>
+      <p>{historyState.taste}</p>
+      <img src={historyState.image} alt={historyState.name} />
+
+      <h2>Ingredients</h2>
+      <ul className={styles.ingredients}>
+        {ingredients.map(ingredient => {
+          if (ingredient !== null) {
+            return <Ingredient ingredient={ingredient} key={Math.random()} />;
+          }
+        })}
+      </ul>
+    </main>
+  );
 };
 
 export default Details;
