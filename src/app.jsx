@@ -11,7 +11,7 @@ import Home from './components/home/home';
 import Details from './components/details/details';
 import Picks from './components/picks/picks';
 
-function App({ authService, cocktail }) {
+function App({ authService, cocktailRepo, cocktail }) {
   const [cocktails, setCocktails] = useState([]);
 
   const search = useCallback(
@@ -50,13 +50,13 @@ function App({ authService, cocktail }) {
           <Route path="/home">
             <Home
               authService={authService}
-              onSearch={search}
               cocktails={cocktails}
+              onSearch={search}
               setCocktails={setCocktails}
             />
           </Route>
           <Route path="/details">
-            <Details />
+            <Details authService={authService} cocktailRepo={cocktailRepo} />
           </Route>
           <Route path="/picks">
             <Picks />
