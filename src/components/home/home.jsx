@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './home.module.css';
 import SearchList from '../search_list/search_list';
@@ -6,8 +6,6 @@ import Footer from '../footer/footer';
 
 const Home = ({ authService, cocktails, onSearch, setCocktails }) => {
   const history = useHistory();
-  const historyState = history.location.state;
-  const [userId, setUserId] = useState(historyState && historyState.id);
   const inputRef = useRef();
 
   const listLength = cocktails.length;
@@ -20,9 +18,7 @@ const Home = ({ authService, cocktails, onSearch, setCocktails }) => {
 
   useEffect(() => {
     authService.onAuthChange(user => {
-      if (user) {
-        setUserId(user.uid);
-      } else {
+      if (!user) {
         history.push('/');
       }
     });

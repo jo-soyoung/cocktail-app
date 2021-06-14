@@ -56,7 +56,7 @@ function App({ authService, cocktailRepo, cocktail }) {
             />
           </Route>
           <Route path="/details">
-            <Details cocktailRepo={cocktailRepo} />
+            <Details authService={authService} cocktailRepo={cocktailRepo} />
           </Route>
           <Route path="/picks">
             <Picks />

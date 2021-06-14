@@ -1,5 +1,9 @@
 import React from 'react';
 
-const Button = ({ name }) => <button type="submit">{name}</button>;
+const Button = ({ name, onClick }) => (
+  <button type="button" onClick={onClick}>
+    {name}
+  </button>
+);
 
 export default Button;
