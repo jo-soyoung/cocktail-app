@@ -4,7 +4,7 @@ import styles from './home.module.css';
 import SearchList from '../search_list/search_list';
 import Footer from '../footer/footer';
 
-const Home = ({ authService, onSearch, cocktails, setCocktails }) => {
+const Home = ({ authService, cocktails, onSearch, setCocktails }) => {
   const history = useHistory();
   const historyState = history.location.state;
   const [userId, setUserId] = useState(historyState && historyState.id);

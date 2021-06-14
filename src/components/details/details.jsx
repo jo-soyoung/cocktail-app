@@ -4,7 +4,7 @@ import styles from './details.module.css';
 import Button from '../button/button';
 import Ingredient from '../ingredient/ingredient';
 
-const Details = () => {
+const Details = ({ cocktailRepo }) => {
   const history = useHistory();
   const historyState = history?.location?.state;
   const ingredients = historyState.ingredients;
